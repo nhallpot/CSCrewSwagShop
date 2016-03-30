@@ -11,11 +11,26 @@ namespace CSCrewSwagShop.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            int x = 3;
-            int y = 4;
-            int z = x + y;
-
             return View();
+        }
+
+        // Get: About
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        // Get: Contact
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+
+        // Post: Contact
+        public ActionResult Contact(FormCollection form)
+        {
+            return null;
         }
     }
 }
