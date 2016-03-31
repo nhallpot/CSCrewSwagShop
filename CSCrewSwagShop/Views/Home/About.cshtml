@@ -1,17 +1,10 @@
 ﻿
 @{
-    Layout = null;
+    var year = ViewBag.Year as string;
+    ViewBag.Title = "About";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>About</title>
-</head>
 <body>
-    <div> 
+    <div > 
+        <p>Today's Year is: @(year)</p>
     </div>
 </body>
-</html>
