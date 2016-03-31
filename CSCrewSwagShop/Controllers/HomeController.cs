@@ -17,6 +17,7 @@ namespace CSCrewSwagShop.Controllers
         // Get: About
         public ActionResult About()
         {
+            ViewBag.Year = DateTime.Now.Year.ToString();
             return View();
         }
 
