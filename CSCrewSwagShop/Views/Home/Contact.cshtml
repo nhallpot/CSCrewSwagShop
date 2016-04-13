@@ -14,10 +14,20 @@
     <h2>Contact</h2>
     <div>
         <br/>
-        <form method="post" action="EmailSend.cshtml">
+        <form method="post" action="EmailSend">
             <div>
-                <label>Username:</label>
+                <label>Name:</label><br />
+                <input type="text" name="customerName" />
+            </div>
+
+            <div>
+                <label>Email:</label><br />
                 <input type="text" name="customerEmail" />
+            </div>
+
+            <div>
+                <label>Suggestion:</label><br />
+                <textarea name="comment"></textarea><br />
             </div>
             
             <p><input type="submit" value="Submit" /></p>
