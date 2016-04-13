@@ -31,5 +31,10 @@ namespace CSCrewSwagShop.Controllers
         {
             return null;
         }
+
+        public ActionResult EmailSend()
+        {
+            return View();
+        }
     }
 }
