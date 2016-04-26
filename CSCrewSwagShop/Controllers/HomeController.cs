@@ -20,17 +20,21 @@ namespace CSCrewSwagShop.Controllers
             return View();
         }
 
-        // Get: Contact
+        [HttpGet]
         public ActionResult Contact()
         {
             return View();
         }
 
-
-        // Post: Contact
+        [HttpPost]
         public ActionResult Contact(FormCollection form)
         {
             return null;
+        }
+
+        public ActionResult EmailSend()
+        {
+            return View();
         }
     }
 }
