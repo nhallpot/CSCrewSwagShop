@@ -1,0 +1,61 @@
+﻿@using System.Net.Mail;
+ 
+@{
+
+    var customerName = Request["customerName"];
+    var customerEmail = Request["customerEmail"];
+    var customerComment = Request["customerComment"];
+    var errorMessage = "";
+    var debuggingFlag = true;
+
+    try {
+        /* Create new smtpClient object using the smpt server information located
+         * in the Web.config file.
+         * 
+         * Note: The account that is being used must have access by less secure apps 
+         * turned on. They can be turned on here: https://www.google.com/settings/security/lesssecureapps
+        */
+        SmtpClient smtpClient = new SmtpClient();
+
+        // Create MailAddress objects
+        MailAddress from = new MailAddress(customerEmail, customerName);
+        MailAddress to = new MailAddress("zays1993@gmail.com", "Isaiah Simon");
+
+
+        // Create MailMessage using "from" and "to" MailAddress objects and adds subject and body
+        MailMessage mailMessage = new MailMessage(from, to);
+        mailMessage.Subject = "New Message From: " + customerName;
+        mailMessage.Body = customerComment;
+
+        //Send mailMessage via smpt server
+        smtpClient.Send(mailMessage);
+    }
+    catch (Exception ex ) {
+        errorMessage = ex.Message;
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request for Assistance</title>
+</head>
+<body>
+    
+    @if (errorMessage == "")
+    {
+        <h2>We have receieved your message, @customerName.</h2>
+        <p>We will contact you back shortly.</p>
+        <p>Email Sent:</p>
+        <p><b>@customerComment</b></p>
+        
+    }
+    else{
+        <h2>The email was <em>not</em> sent.</h2>
+        <p>Please try sending your message again. If you are not able to do so, please contact us at cscrew@uvm.edu</p>
+        if(debuggingFlag){
+            <p>The following error was reported:</p>
+            <p><em>@errorMessage</em></p>
+        }
+    }
+</body>
+</html>

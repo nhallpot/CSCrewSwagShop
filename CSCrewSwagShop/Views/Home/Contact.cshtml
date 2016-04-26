@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "Contact";
 }
 
 <!DOCTYPE html>
@@ -11,7 +11,27 @@
     <title>Contact</title>
 </head>
 <body>
-    <div> 
+    <h2>Contact Us</h2>
+    <div>
+        <br/>
+        <form method="post" action="EmailSend">
+            <div>
+                <label>Name:</label><br />
+                <input type="text" name="customerName" />
+            </div>
+
+            <div>
+                <label>Email:</label><br />
+                <input type="text" name="customerEmail" />
+            </div>
+
+            <div>
+                <label>Suggestion:</label><br />
+                <textarea name="customerComment"></textarea><br />
+            </div>
+            
+            <p><input type="submit" value="Submit" /></p>
+        </form> 
     </div>
 </body>
 </html>
