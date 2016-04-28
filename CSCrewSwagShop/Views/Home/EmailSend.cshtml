@@ -6,7 +6,7 @@
     var customerEmail = Request["customerEmail"];
     var customerComment = Request["customerComment"];
     var errorMessage = "";
-    var debuggingFlag = true;
+    var debuggingFlag = false;
 
     try {
         /* Create new smtpClient object using the smpt server information located
@@ -26,6 +26,9 @@
         MailMessage mailMessage = new MailMessage(from, to);
         mailMessage.Subject = "New Message From: " + customerName;
         mailMessage.Body = customerComment;
+
+        // Enables SSL for secure email
+        smtpClient.EnableSsl = true;
 
         //Send mailMessage via smpt server
         smtpClient.Send(mailMessage);
