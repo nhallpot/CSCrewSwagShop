@@ -27,6 +27,9 @@
         mailMessage.Subject = "New Message From: " + customerName;
         mailMessage.Body = customerComment;
 
+        // Enables SSL for secure email
+        smtpClient.EnableSsl = true;
+
         //Send mailMessage via smpt server
         smtpClient.Send(mailMessage);
     }
